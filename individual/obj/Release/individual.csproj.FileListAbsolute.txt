@@ -1,0 +1,10 @@
+C:\Users\Super\source\repos\individual\individual\bin\Release\individual.exe.config
+C:\Users\Super\source\repos\individual\individual\bin\Release\individual.exe
+C:\Users\Super\source\repos\individual\individual\bin\Release\individual.pdb
+C:\Users\Super\source\repos\individual\individual\obj\Release\individual.csprojAssemblyReference.cache
+C:\Users\Super\source\repos\individual\individual\obj\Release\individual.Form1.resources
+C:\Users\Super\source\repos\individual\individual\obj\Release\individual.Properties.Resources.resources
+C:\Users\Super\source\repos\individual\individual\obj\Release\individual.csproj.GenerateResource.cache
+C:\Users\Super\source\repos\individual\individual\obj\Release\individual.csproj.CoreCompileInputs.cache
+C:\Users\Super\source\repos\individual\individual\obj\Release\individual.exe
+C:\Users\Super\source\repos\individual\individual\obj\Release\individual.pdb

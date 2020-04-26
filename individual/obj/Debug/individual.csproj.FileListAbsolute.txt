@@ -1,0 +1,10 @@
+C:\Users\Super\source\repos\individual\individual\bin\Debug\individual.exe.config
+C:\Users\Super\source\repos\individual\individual\bin\Debug\individual.exe
+C:\Users\Super\source\repos\individual\individual\bin\Debug\individual.pdb
+C:\Users\Super\source\repos\individual\individual\obj\Debug\individual.csprojAssemblyReference.cache
+C:\Users\Super\source\repos\individual\individual\obj\Debug\individual.Form1.resources
+C:\Users\Super\source\repos\individual\individual\obj\Debug\individual.Properties.Resources.resources
+C:\Users\Super\source\repos\individual\individual\obj\Debug\individual.csproj.GenerateResource.cache
+C:\Users\Super\source\repos\individual\individual\obj\Debug\individual.csproj.CoreCompileInputs.cache
+C:\Users\Super\source\repos\individual\individual\obj\Debug\individual.exe
+C:\Users\Super\source\repos\individual\individual\obj\Debug\individual.pdb
