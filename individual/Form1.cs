@@ -91,9 +91,8 @@ namespace individual
             Graph G = new Graph();
             G.setupGraph(matr);
 
-            int r = G.countWays(G.getVertexList()[0], N);
+            int r = G.countWays(N);
             TextBoxOut.AppendText(System.Convert.ToString(r));
-
         }
 
         private void Clearbutton_Click(object sender, EventArgs e)
