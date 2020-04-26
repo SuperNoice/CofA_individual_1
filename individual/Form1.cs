@@ -38,7 +38,7 @@ namespace individual
         private void Savebutton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.DefaultExt=".txt";
+            saveFile.DefaultExt = ".txt";
             saveFile.AddExtension = true;
             saveFile.Title = "Сохранить как...";
             saveFile.OverwritePrompt = true;
@@ -56,7 +56,7 @@ namespace individual
         private void Processbutton_Click(object sender, EventArgs e)
         {
             TextBoxOut.Clear();
-
+            // Проверки
             if (TextBoxParamN.Text.Length == 0)
             {
                 TextBoxOut.AppendText("Параметр N не задан!");
@@ -69,6 +69,7 @@ namespace individual
                 TextBoxOut.AppendText("Введите матрицу!");
                 return;
             }
+            // Инициализация
             string reference = TextBoxIn.Text.Trim();
             string[] str = reference.Split('\n');
             int size = str.Length;
@@ -90,9 +91,10 @@ namespace individual
 
             Graph G = new Graph();
             G.setupGraph(matr);
-
-            int r = G.countWays(N);
-            TextBoxOut.AppendText(System.Convert.ToString(r));
+            // Поиск количества путей
+            int res = G.countWays(N);
+            // Вывод результата
+            TextBoxOut.AppendText(System.Convert.ToString(res));
         }
 
         private void Clearbutton_Click(object sender, EventArgs e)
@@ -277,7 +279,8 @@ namespace individual
     class Edge
     {
         private Vertex TransmitterVertex, ReceiverVertex;
-        private string type, name;
+        private string type; // Types: to, from, both
+        private string name;
         private int id;
 
         public Edge(Vertex transmitter, Vertex receiver, int newid)
@@ -296,6 +299,10 @@ namespace individual
             id = newid;
         }
 
+        public void changeName(string newName)
+        {
+            name = newName;
+        }
         public void changeType(string newType)
         {
             type = newType;
