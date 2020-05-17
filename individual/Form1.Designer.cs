@@ -36,11 +36,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Processbutton = new System.Windows.Forms.Button();
             this.Clearbutton = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.Processbutton2 = new System.Windows.Forms.Button();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Importbutton
             // 
-            this.Importbutton.Location = new System.Drawing.Point(106, 32);
+            this.Importbutton.Location = new System.Drawing.Point(106, 50);
             this.Importbutton.Name = "Importbutton";
             this.Importbutton.Size = new System.Drawing.Size(137, 45);
             this.Importbutton.TabIndex = 0;
@@ -50,7 +60,7 @@
             // 
             // TextBoxIn
             // 
-            this.TextBoxIn.Location = new System.Drawing.Point(12, 109);
+            this.TextBoxIn.Location = new System.Drawing.Point(12, 101);
             this.TextBoxIn.Name = "TextBoxIn";
             this.TextBoxIn.Size = new System.Drawing.Size(353, 329);
             this.TextBoxIn.TabIndex = 1;
@@ -58,7 +68,7 @@
             // 
             // TextBoxOut
             // 
-            this.TextBoxOut.Location = new System.Drawing.Point(423, 109);
+            this.TextBoxOut.Location = new System.Drawing.Point(423, 101);
             this.TextBoxOut.Name = "TextBoxOut";
             this.TextBoxOut.Size = new System.Drawing.Size(365, 329);
             this.TextBoxOut.TabIndex = 2;
@@ -66,7 +76,7 @@
             // 
             // Savebutton
             // 
-            this.Savebutton.Location = new System.Drawing.Point(549, 32);
+            this.Savebutton.Location = new System.Drawing.Point(549, 50);
             this.Savebutton.Name = "Savebutton";
             this.Savebutton.Size = new System.Drawing.Size(136, 45);
             this.Savebutton.TabIndex = 3;
@@ -76,7 +86,7 @@
             // 
             // TextBoxParamN
             // 
-            this.TextBoxParamN.Location = new System.Drawing.Point(371, 60);
+            this.TextBoxParamN.Location = new System.Drawing.Point(366, 9);
             this.TextBoxParamN.Name = "TextBoxParamN";
             this.TextBoxParamN.Size = new System.Drawing.Size(46, 20);
             this.TextBoxParamN.TabIndex = 4;
@@ -84,7 +94,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(347, 64);
+            this.label1.Location = new System.Drawing.Point(342, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 5;
@@ -92,7 +102,7 @@
             // 
             // Processbutton
             // 
-            this.Processbutton.Location = new System.Drawing.Point(371, 243);
+            this.Processbutton.Location = new System.Drawing.Point(366, 210);
             this.Processbutton.Name = "Processbutton";
             this.Processbutton.Size = new System.Drawing.Size(46, 45);
             this.Processbutton.TabIndex = 6;
@@ -102,13 +112,88 @@
             // 
             // Clearbutton
             // 
-            this.Clearbutton.Location = new System.Drawing.Point(12, 84);
+            this.Clearbutton.Location = new System.Drawing.Point(12, 76);
             this.Clearbutton.Name = "Clearbutton";
             this.Clearbutton.Size = new System.Drawing.Size(52, 19);
             this.Clearbutton.TabIndex = 7;
             this.Clearbutton.Text = "clear";
             this.Clearbutton.UseVisualStyleBackColor = true;
             this.Clearbutton.Click += new System.EventHandler(this.Clearbutton_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Location = new System.Drawing.Point(1, 1);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(798, 448);
+            this.tabControl1.TabIndex = 8;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.Processbutton);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.TextBoxParamN);
+            this.tabPage1.Location = new System.Drawing.Point(4, 40);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(790, 404);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Найти количество путей длины N";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.Processbutton2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 40);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(790, 404);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Построить произвольное максимальное независимое множество вершин графа";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 40);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(790, 404);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Построить топологическую сортировку вершин графа";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 40);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(790, 404);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Проверка на дерево";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 40);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(790, 404);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Алгоритм Беллмана – Форда нахождения кратчайшего пути";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // Processbutton2
+            // 
+            this.Processbutton2.Location = new System.Drawing.Point(366, 210);
+            this.Processbutton2.Name = "Processbutton2";
+            this.Processbutton2.Size = new System.Drawing.Size(46, 45);
+            this.Processbutton2.TabIndex = 7;
+            this.Processbutton2.Text = "-->";
+            this.Processbutton2.UseVisualStyleBackColor = true;
+            this.Processbutton2.Click += new System.EventHandler(this.Processbutton2_Click);
             // 
             // Form1
             // 
@@ -117,17 +202,18 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Clearbutton);
-            this.Controls.Add(this.Processbutton);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.TextBoxParamN);
             this.Controls.Add(this.Savebutton);
             this.Controls.Add(this.TextBoxOut);
             this.Controls.Add(this.TextBoxIn);
             this.Controls.Add(this.Importbutton);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Количество путей длинны N";
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -141,6 +227,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Processbutton;
         private System.Windows.Forms.Button Clearbutton;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button Processbutton2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
     }
 }
 

@@ -11,13 +11,15 @@ namespace individual
         private List<Vertex> vertexList;
         private List<Edge> edgeList;
         public string name { get; set; }
-        private List<Edge> stack;
+        private List<Edge> stackEdge;
+        private List<Vertex> stackVertex;
 
         public Graph()
         {
             vertexList = new List<Vertex>();
             edgeList = new List<Edge>();
-            stack = new List<Edge>();
+            stackEdge = new List<Edge>();
+            stackVertex = new List<Vertex>();
             name = "";
         }
 
@@ -25,7 +27,8 @@ namespace individual
         {
             vertexList = new List<Vertex>();
             edgeList = new List<Edge>();
-            stack = new List<Edge>();
+            stackEdge = new List<Edge>();
+            stackVertex = new List<Vertex>();
             name = newName;
         }
 
@@ -131,11 +134,11 @@ namespace individual
             return newEdge;
         }
 
-        private bool check(Vertex now, Vertex next)
+        private bool checkForRecCountWays(Vertex now, Vertex next)
         {
             bool f = false;
-            for (int i = 0; i < stack.Count; i++)
-                if ((stack[i].GetTransmitter().GetHashCode() == now.GetHashCode() && stack[i].GetReceiver().GetHashCode() == next.GetHashCode()) || (stack[i].GetTransmitter().GetHashCode() == next.GetHashCode() && stack[i].GetReceiver().GetHashCode() == now.GetHashCode()))
+            for (int i = 0; i < stackEdge.Count; i++)
+                if ((stackEdge[i].GetTransmitter().GetHashCode() == now.GetHashCode() && stackEdge[i].GetReceiver().GetHashCode() == next.GetHashCode()) || (stackEdge[i].GetTransmitter().GetHashCode() == next.GetHashCode() && stackEdge[i].GetReceiver().GetHashCode() == now.GetHashCode()))
                     f = true;
 
             return f;
@@ -148,11 +151,11 @@ namespace individual
             for (int i = 0; i < list.Count; i++)
             {
                 Edge verse = new Edge(now, list[i], -1);
-                if (check(now, list[i])) continue;
+                if (checkForRecCountWays(now, list[i])) continue;
 
-                stack.Add(verse);
+                stackEdge.Add(verse);
                 count += recCountWays(list[i], wayleghtnow + 1, wayleghtneed);
-                stack.Remove(verse);
+                stackEdge.Remove(verse);
             }
 
             return count;
@@ -175,6 +178,40 @@ namespace individual
                 count += recCountWays(vertexList[i], 0, wayLeght);
 
             return count;
+        }
+
+        private bool checkForMaximum_independent_set_of_vertexes(Vertex v, List<Vertex> verList)
+        {
+            bool f = true;
+
+            for (int i = 0; i < verList.Count; i++)
+                if (verList[i].getAdjacentVertexList().Contains(v)) f = false;
+
+            return f;
+        }
+
+        public List<Vertex> maximum_independent_set_of_vertexes()
+        {
+            List<Vertex> res = new List<Vertex>();
+            List<Vertex> temp = new List<Vertex>();
+
+            for (int i = 0; i < vertexList.Count; i++)
+            {
+                for (int j = 0; j < vertexList.Count; j++)
+                {
+                    if (i == j) continue;
+
+                    if (checkForMaximum_independent_set_of_vertexes(vertexList[j], temp)) temp.Add(vertexList[j]);
+                }
+                if (res.Count < temp.Count)
+                {
+                    res.Clear();
+                    foreach (Vertex item in temp) res.Add(item);
+                }
+                temp.Clear();
+            }
+
+            return res;
         }
     }
 
@@ -270,6 +307,16 @@ namespace individual
         public void setVertexName(string newName)
         {
             name = newName;
+        }
+
+        public string getVertexName()
+        {
+            return name;
+        }
+
+        public int getVertexId()
+        {
+            return id;
         }
 
     }

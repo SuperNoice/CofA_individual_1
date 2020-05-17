@@ -53,21 +53,19 @@ namespace individual
             MessageBox.Show("Файл сохранен");
         }
 
-        private void Processbutton_Click(object sender, EventArgs e)
+        private void Clearbutton_Click(object sender, EventArgs e)
         {
+            TextBoxIn.Clear();
             TextBoxOut.Clear();
-            // Проверки
-            if (TextBoxParamN.Text.Length == 0)
-            {
-                TextBoxOut.AppendText("Параметр N не задан!");
-                return;
-            }
-            int N = System.Convert.ToInt32(TextBoxParamN.Text);
+        }
 
+        private Graph setGraph()
+        {
+            // Проверки
             if (TextBoxIn.Text.Length == 0)
             {
                 TextBoxOut.AppendText("Введите матрицу!");
-                return;
+                return null;
             }
             // Инициализация
             string reference = TextBoxIn.Text.Trim();
@@ -82,7 +80,7 @@ namespace individual
                 if (stl.Length != size)
                 {
                     TextBoxOut.AppendText("Неверный формат матрицы!");
-                    return;
+                    return null;
                 }
 
                 for (int j = 0; j < size; j++)
@@ -91,17 +89,56 @@ namespace individual
 
             Graph G = new Graph();
             G.setupGraph(matr);
+
+            return G;
+        }
+
+        private void Processbutton_Click(object sender, EventArgs e)
+        {
+            TextBoxOut.Clear();
+
+            if (TextBoxParamN.Text.Length == 0)
+            {
+                TextBoxOut.AppendText("Параметр N не задан!");
+                return;
+            }
+
+            Graph G = setGraph();
+            if (G == null) return;
+
+            int N = System.Convert.ToInt32(TextBoxParamN.Text);
+
             // Поиск количества путей
             int res = G.countWays(N);
             // Вывод результата
             TextBoxOut.AppendText(System.Convert.ToString(res));
         }
 
-        private void Clearbutton_Click(object sender, EventArgs e)
+        private void Processbutton2_Click(object sender, EventArgs e)
         {
-            TextBoxIn.Clear();
             TextBoxOut.Clear();
+
+            Graph G = setGraph();
+            if (G == null) return;
+
+            List<Vertex> res = G.maximum_independent_set_of_vertexes();
+
+            if(res.Count==0)
+            {
+                TextBoxOut.Text = "Независимое множество вершин отсутствует";
+                return;
+            }
+
+            TextBoxOut.Text = "Все вершины: ";
+            foreach (Vertex item in G.getVertexList()) TextBoxOut.Text += System.Convert.ToString(item.getVertexId()) + " ";
+            TextBoxOut.Text += "\nНезависимое множество вершин: ";
+
+            foreach (Vertex item in res) TextBoxOut.Text += System.Convert.ToString(item.getVertexId())+" ";
+            
+
         }
+
+        
     }
 
 }
