@@ -197,6 +197,7 @@ namespace individual
 
             for (int i = 0; i < vertexList.Count; i++)
             {
+                temp.Add(vertexList[i]);
                 for (int j = 0; j < vertexList.Count; j++)
                 {
                     if (i == j) continue;
