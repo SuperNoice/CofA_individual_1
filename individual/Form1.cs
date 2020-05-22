@@ -159,7 +159,8 @@ namespace individual
             Graph G = setGraph();
             if (G == null) return;
 
-
+            if(G.isTree()) TextBoxOut.Text = "Дерево: да";
+            else TextBoxOut.Text = "Дерево: нет";
         }
     }
 

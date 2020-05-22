@@ -255,10 +255,27 @@ namespace individual
             }
         }
 
-        //public bool isTree()
-        //{
+        public bool recIsTree(Vertex now, Vertex pred)
+        {
+            stackVertex.Add(now);
+            List<Vertex> list = now.getAdjacentVertexList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] == pred) continue;
+                if (stackVertex.Contains(list[i])) return false;
+ 
+                if (recIsTree(list[i], now) == false) return false;
+            }
 
-        //}
+            return true;
+        }
+
+        public bool isTree()
+        {
+            if (recIsTree(vertexList[0], null) == false) return false;
+
+            return true;
+        }
     }
 
     class Edge
