@@ -39,13 +39,17 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Processbutton2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.Processbutton2 = new System.Windows.Forms.Button();
+            this.Processbutton3 = new System.Windows.Forms.Button();
+            this.Processbutton4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Importbutton
@@ -158,8 +162,19 @@
             this.tabPage2.Text = "Построить произвольное максимальное независимое множество вершин графа";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // Processbutton2
+            // 
+            this.Processbutton2.Location = new System.Drawing.Point(366, 210);
+            this.Processbutton2.Name = "Processbutton2";
+            this.Processbutton2.Size = new System.Drawing.Size(46, 45);
+            this.Processbutton2.TabIndex = 7;
+            this.Processbutton2.Text = "-->";
+            this.Processbutton2.UseVisualStyleBackColor = true;
+            this.Processbutton2.Click += new System.EventHandler(this.Processbutton2_Click);
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.Processbutton3);
             this.tabPage3.Location = new System.Drawing.Point(4, 40);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(790, 404);
@@ -169,6 +184,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.Processbutton4);
             this.tabPage4.Location = new System.Drawing.Point(4, 40);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(790, 404);
@@ -185,15 +201,25 @@
             this.tabPage5.Text = "Алгоритм Беллмана – Форда нахождения кратчайшего пути";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // Processbutton2
+            // Processbutton3
             // 
-            this.Processbutton2.Location = new System.Drawing.Point(366, 210);
-            this.Processbutton2.Name = "Processbutton2";
-            this.Processbutton2.Size = new System.Drawing.Size(46, 45);
-            this.Processbutton2.TabIndex = 7;
-            this.Processbutton2.Text = "-->";
-            this.Processbutton2.UseVisualStyleBackColor = true;
-            this.Processbutton2.Click += new System.EventHandler(this.Processbutton2_Click);
+            this.Processbutton3.Location = new System.Drawing.Point(366, 210);
+            this.Processbutton3.Name = "Processbutton3";
+            this.Processbutton3.Size = new System.Drawing.Size(46, 45);
+            this.Processbutton3.TabIndex = 7;
+            this.Processbutton3.Text = "-->";
+            this.Processbutton3.UseVisualStyleBackColor = true;
+            this.Processbutton3.Click += new System.EventHandler(this.Processbutton3_Click);
+            // 
+            // Processbutton4
+            // 
+            this.Processbutton4.Location = new System.Drawing.Point(366, 210);
+            this.Processbutton4.Name = "Processbutton4";
+            this.Processbutton4.Size = new System.Drawing.Size(46, 45);
+            this.Processbutton4.TabIndex = 8;
+            this.Processbutton4.Text = "-->";
+            this.Processbutton4.UseVisualStyleBackColor = true;
+            this.Processbutton4.Click += new System.EventHandler(this.Processbutton4_Click);
             // 
             // Form1
             // 
@@ -213,6 +239,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -234,6 +262,8 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button Processbutton3;
+        private System.Windows.Forms.Button Processbutton4;
     }
 }
 

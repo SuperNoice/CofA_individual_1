@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,8 +44,8 @@ namespace individual
                 for (int j = 0; j < size; j++)
                 {
                     if (matrSm[i, j] * matrSm[j, i] > 0) type = "both";
-                    if (matrSm[i, j] > 0 && matrSm[j, i] < 0) type = "to";
-                    if (matrSm[i, j] < 0 && matrSm[j, i] > 0) type = "from";
+                    if (matrSm[i, j] > 0 && matrSm[j, i] <= 0) type = "to";
+                    if (matrSm[i, j] <= 0 && matrSm[j, i] > 0) type = "from";
 
                     if (matrSm[i, j] != 0)
                         addEdge(vertexList[i], vertexList[j], type);
@@ -214,6 +215,50 @@ namespace individual
 
             return res;
         }
+
+
+        public int topology_sort_rec(Vertex now)
+        {
+            now.setVertexName("gray");
+            List<Vertex> list = now.getAdjacentVertexList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].getVertexName() == "gray") return 1;
+                if (list[i].getVertexName() == "black") continue;
+
+                if (topology_sort_rec(list[i]) == 1) return 1;
+            }
+            now.setVertexName("black");
+            stackVertex.Add(now);
+            return 0;
+        }
+
+        public int topology_sort()
+        {
+            for (int i = 0; i < vertexList.Count; i++) vertexList[i].setVertexName("white");
+
+            if (topology_sort_rec(vertexList[0]) == 1) return 1;
+            else
+            {
+                for (int i = 0; i < vertexList.Count; i++) vertexList[i].setVertexName("");
+
+                int id = 0;
+                for (int i = stackVertex.Count - 1; i >= 0; i--)
+                {
+                    vertexList[id] = stackVertex[i];
+                    id++;
+                }
+
+                stackVertex.Clear();
+
+                return 0;
+            }
+        }
+
+        //public bool isTree()
+        //{
+
+        //}
     }
 
     class Edge
@@ -275,7 +320,7 @@ namespace individual
         }
     };
 
-    struct Vertex
+    class Vertex
     {
         private List<Vertex> adjacentVertexList;
         private string name;
@@ -318,6 +363,11 @@ namespace individual
         public int getVertexId()
         {
             return id;
+        }
+
+        public void setVertexId(int newId)
+        {
+            id = newId;
         }
 
     }

@@ -123,7 +123,7 @@ namespace individual
 
             List<Vertex> res = G.maximum_independent_set_of_vertexes();
 
-            if(res.Count==0)
+            if (res.Count == 0)
             {
                 TextBoxOut.Text = "Независимое множество вершин отсутствует";
                 return;
@@ -133,12 +133,34 @@ namespace individual
             foreach (Vertex item in G.getVertexList()) TextBoxOut.Text += System.Convert.ToString(item.getVertexId()) + " ";
             TextBoxOut.Text += "\nНезависимое множество вершин: ";
 
-            foreach (Vertex item in res) TextBoxOut.Text += System.Convert.ToString(item.getVertexId())+" ";
-            
+            foreach (Vertex item in res) TextBoxOut.Text += System.Convert.ToString(item.getVertexId()) + " ";
+
 
         }
 
-        
+        private void Processbutton3_Click(object sender, EventArgs e)
+        {
+            TextBoxOut.Clear();
+
+            Graph G = setGraph();
+            if (G == null) return;
+
+            if (G.topology_sort() == 1) { TextBoxOut.Text = "Граф не может быть отсортирован!"; return; }
+
+            TextBoxOut.Text += "Отсортированный граф: ";
+            foreach (var Vertex in G.getVertexList()) TextBoxOut.Text += System.Convert.ToString(Vertex.getVertexId()) + " ";
+
+        }
+
+        private void Processbutton4_Click(object sender, EventArgs e)
+        {
+            TextBoxOut.Clear();
+
+            Graph G = setGraph();
+            if (G == null) return;
+
+
+        }
     }
 
 }
