@@ -45,11 +45,15 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.Processbutton3 = new System.Windows.Forms.Button();
             this.Processbutton4 = new System.Windows.Forms.Button();
+            this.Processbutton5 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.StartVertex = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // Importbutton
@@ -194,6 +198,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label2);
+            this.tabPage5.Controls.Add(this.StartVertex);
+            this.tabPage5.Controls.Add(this.Processbutton5);
             this.tabPage5.Location = new System.Drawing.Point(4, 40);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(790, 404);
@@ -221,6 +228,32 @@
             this.Processbutton4.UseVisualStyleBackColor = true;
             this.Processbutton4.Click += new System.EventHandler(this.Processbutton4_Click);
             // 
+            // Processbutton5
+            // 
+            this.Processbutton5.Location = new System.Drawing.Point(366, 210);
+            this.Processbutton5.Name = "Processbutton5";
+            this.Processbutton5.Size = new System.Drawing.Size(46, 45);
+            this.Processbutton5.TabIndex = 9;
+            this.Processbutton5.Text = "-->";
+            this.Processbutton5.UseVisualStyleBackColor = true;
+            this.Processbutton5.Click += new System.EventHandler(this.Processbutton5_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(248, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Начальная вершина:";
+            // 
+            // StartVertex
+            // 
+            this.StartVertex.Location = new System.Drawing.Point(366, 22);
+            this.StartVertex.Name = "StartVertex";
+            this.StartVertex.Size = new System.Drawing.Size(46, 20);
+            this.StartVertex.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,6 +274,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -264,6 +299,9 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button Processbutton3;
         private System.Windows.Forms.Button Processbutton4;
+        private System.Windows.Forms.Button Processbutton5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox StartVertex;
     }
 }
 

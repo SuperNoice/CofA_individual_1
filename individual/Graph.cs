@@ -48,7 +48,7 @@ namespace individual
                     if (matrSm[i, j] <= 0 && matrSm[j, i] > 0) type = "from";
 
                     if (matrSm[i, j] != 0)
-                        addEdge(vertexList[i], vertexList[j], type);
+                        addEdge(vertexList[i], vertexList[j], matrSm[i, j], type);
                 }
         }
 
@@ -81,9 +81,9 @@ namespace individual
             return newVertex;
         }
 
-        public Edge addEdge(Vertex transmitter, Vertex reciver, string Type)
+        public Edge addEdge(Vertex transmitter, Vertex reciver, int Weight, string Type)
         {
-            Edge newEdge = new Edge(transmitter, reciver, edgeList.Count(), Type);
+            Edge newEdge = new Edge(transmitter, reciver, Weight, edgeList.Count(), Type);
             edgeList.Add(newEdge);
 
             if (Type == "both")
@@ -112,7 +112,7 @@ namespace individual
             vertexList.Add(transmitter);
             Vertex reciver = new Vertex(vertexList.Count());
             vertexList.Add(reciver);
-            Edge newEdge = new Edge(transmitter, reciver, edgeList.Count(), Type);
+            Edge newEdge = new Edge(transmitter, reciver, edgeList.Count(), 0, Type);
             edgeList.Add(newEdge);
 
             if (Type == "both")
@@ -151,7 +151,7 @@ namespace individual
             List<Vertex> list = now.getAdjacentVertexList();
             for (int i = 0; i < list.Count; i++)
             {
-                Edge verse = new Edge(now, list[i], -1);
+                Edge verse = new Edge(now, list[i], -1, -1);
                 if (checkForRecCountWays(now, list[i])) continue;
 
                 stackEdge.Add(verse);
@@ -263,7 +263,7 @@ namespace individual
             {
                 if (list[i] == pred) continue;
                 if (stackVertex.Contains(list[i])) return false;
- 
+
                 if (recIsTree(list[i], now) == false) return false;
             }
 
@@ -276,6 +276,27 @@ namespace individual
 
             return true;
         }
+
+        public List<int> BFShortWay(int start)
+        {
+            List<int> dist = new List<int>(vertexList.Count);
+
+            for (int i = 0; i < vertexList.Count; i++) dist.Add(int.MaxValue);
+            dist[start] = 0;
+
+            for (int i = 0; i < vertexList.Count - 1; i++)
+            {
+                foreach (Edge edge in edgeList)
+                {
+                    if (dist[edge.GetTransmitterId()] == int.MaxValue) continue;
+
+                    if (dist[edge.GetReciverId()] > dist[edge.GetTransmitterId()] + edge.GetWeight())
+                        dist[edge.GetReciverId()] = dist[edge.GetTransmitterId()] + edge.GetWeight();
+                }
+            }
+
+            return dist;
+        }
     }
 
     class Edge
@@ -284,26 +305,35 @@ namespace individual
         private string type; // Types: to, from, both
         private string name;
         private int id;
+        private int weight;
 
-        public Edge(Vertex transmitter, Vertex receiver, int newid)
+        public Edge(Vertex transmitter, Vertex receiver, int newWeight, int newid)
         {
             this.TransmitterVertex = transmitter;
             this.ReceiverVertex = receiver;
             type = "none";
             id = newid;
+            weight = newWeight;
         }
 
-        public Edge(Vertex transmitter, Vertex receiver, int newid, string newType)
+        public Edge(Vertex transmitter, Vertex receiver, int newWeight, int newid, string newType)
         {
             this.TransmitterVertex = transmitter;
             this.ReceiverVertex = receiver;
             type = newType;
             id = newid;
+            weight = newWeight;
+        }
+
+        public int GetWeight()
+        {
+            return weight;
         }
 
         public void changeName(string newName)
         {
             name = newName;
+
         }
         public void changeType(string newType)
         {
@@ -325,9 +355,19 @@ namespace individual
             return this.TransmitterVertex;
         }
 
+        public int GetTransmitterId()
+        {
+            return this.TransmitterVertex.getVertexId();
+        }
+
         public Vertex GetReceiver()
         {
             return this.ReceiverVertex;
+        }
+
+        public int GetReciverId()
+        {
+            return this.ReceiverVertex.getVertexId();
         }
 
         public void EdgeSetup(Vertex value1, Vertex value2)

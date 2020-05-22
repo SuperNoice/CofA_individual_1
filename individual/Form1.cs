@@ -159,8 +159,28 @@ namespace individual
             Graph G = setGraph();
             if (G == null) return;
 
-            if(G.isTree()) TextBoxOut.Text = "Дерево: да";
+            if (G.isTree()) TextBoxOut.Text = "Дерево: да";
             else TextBoxOut.Text = "Дерево: нет";
+        }
+
+        private void Processbutton5_Click(object sender, EventArgs e)
+        {
+            TextBoxOut.Clear();
+
+            Graph G = setGraph();
+            if (G == null) return;
+
+            if (StartVertex.Text == "") { TextBoxOut.Text = "Введите начальную вершину!"; return; }
+            int start = System.Convert.ToInt32(StartVertex.Text);
+            if (start > G.getVertexList().Count - 1 || start < 0) { TextBoxOut.Text = "Неправильная стартовая точка! Нумерация вершин от нуля."; return; }
+
+            List<int> dist = G.BFShortWay(start);
+
+            for (int i = 0; i < dist.Count; i++)
+            {
+                if (i != start && dist[i] != int.MaxValue)
+                    TextBoxOut.Text += System.Convert.ToString(start) + "->" + System.Convert.ToString(i) + "=" + System.Convert.ToString(dist[i]) + "\n";
+            }
         }
     }
 
