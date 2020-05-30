@@ -81,27 +81,27 @@ namespace individual
             return newVertex;
         }
 
-        public Edge addEdge(Vertex transmitter, Vertex reciver, int Weight, string Type)
+        public Edge addEdge(Vertex transmitter, Vertex Receiver, int Weight, string Type)
         {
-            Edge newEdge = new Edge(transmitter, reciver, Weight, edgeList.Count(), Type);
+            Edge newEdge = new Edge(transmitter, Receiver, Weight, edgeList.Count(), Type);
             edgeList.Add(newEdge);
 
             if (Type == "both")
             {
-                if (!reciver.getAdjacentVertexList().Contains(transmitter))
-                    reciver.addAdjacentVertex(ref transmitter);
-                if (!transmitter.getAdjacentVertexList().Contains(reciver))
-                    transmitter.addAdjacentVertex(ref reciver);
+                if (!Receiver.getAdjacentVertexList().Contains(transmitter))
+                    Receiver.addAdjacentVertex(ref transmitter);
+                if (!transmitter.getAdjacentVertexList().Contains(Receiver))
+                    transmitter.addAdjacentVertex(ref Receiver);
             }
             if (Type == "to")
             {
-                if (!transmitter.getAdjacentVertexList().Contains(reciver))
-                    transmitter.addAdjacentVertex(ref reciver);
+                if (!transmitter.getAdjacentVertexList().Contains(Receiver))
+                    transmitter.addAdjacentVertex(ref Receiver);
             }
             if (Type == "from")
             {
-                if (!reciver.getAdjacentVertexList().Contains(transmitter))
-                    reciver.addAdjacentVertex(ref transmitter);
+                if (!Receiver.getAdjacentVertexList().Contains(transmitter))
+                    Receiver.addAdjacentVertex(ref transmitter);
             }
             return newEdge;
         }
@@ -110,27 +110,27 @@ namespace individual
         {
             Vertex transmitter = new Vertex(vertexList.Count());
             vertexList.Add(transmitter);
-            Vertex reciver = new Vertex(vertexList.Count());
-            vertexList.Add(reciver);
-            Edge newEdge = new Edge(transmitter, reciver, edgeList.Count(), 0, Type);
+            Vertex Receiver = new Vertex(vertexList.Count());
+            vertexList.Add(Receiver);
+            Edge newEdge = new Edge(transmitter, Receiver, edgeList.Count(), 0, Type);
             edgeList.Add(newEdge);
 
             if (Type == "both")
             {
-                if (!reciver.getAdjacentVertexList().Contains(transmitter))
-                    reciver.addAdjacentVertex(ref transmitter);
-                if (!transmitter.getAdjacentVertexList().Contains(reciver))
-                    transmitter.addAdjacentVertex(ref reciver);
+                if (!Receiver.getAdjacentVertexList().Contains(transmitter))
+                    Receiver.addAdjacentVertex(ref transmitter);
+                if (!transmitter.getAdjacentVertexList().Contains(Receiver))
+                    transmitter.addAdjacentVertex(ref Receiver);
             }
             if (Type == "to")
             {
-                if (!transmitter.getAdjacentVertexList().Contains(reciver))
-                    transmitter.addAdjacentVertex(ref reciver);
+                if (!transmitter.getAdjacentVertexList().Contains(Receiver))
+                    transmitter.addAdjacentVertex(ref Receiver);
             }
             if (Type == "from")
             {
-                if (!reciver.getAdjacentVertexList().Contains(transmitter))
-                    reciver.addAdjacentVertex(ref transmitter);
+                if (!Receiver.getAdjacentVertexList().Contains(transmitter))
+                    Receiver.addAdjacentVertex(ref transmitter);
             }
             return newEdge;
         }
@@ -144,10 +144,10 @@ namespace individual
 
             return f;
         }
-        private int recCountWays(Vertex now, int wayleghtnow, int wayleghtneed)
+        private int recCountWays(Vertex now, int wayLengthnow, int wayLengthneed)
         {
             int count = 0;
-            if (wayleghtnow == wayleghtneed) return 1;
+            if (wayLengthnow == wayLengthneed) return 1;
             List<Vertex> list = now.getAdjacentVertexList();
             for (int i = 0; i < list.Count; i++)
             {
@@ -155,28 +155,28 @@ namespace individual
                 if (checkForRecCountWays(now, list[i])) continue;
 
                 stackEdge.Add(verse);
-                count += recCountWays(list[i], wayleghtnow + 1, wayleghtneed);
+                count += recCountWays(list[i], wayLengthnow + 1, wayLengthneed);
                 stackEdge.Remove(verse);
             }
 
             return count;
         }
 
-        public int countWays(Vertex start, int wayLeght)
+        public int countWays(Vertex start, int wayLength)
         {
             int count = 0;
 
-            count = recCountWays(start, 0, wayLeght);
+            count = recCountWays(start, 0, wayLength);
 
             return count;
         }
 
-        public int countWays(int wayLeght)
+        public int countWays(int wayLength)
         {
             int count = 0;
 
             for (int i = 0; i < vertexList.Count; i++)
-                count += recCountWays(vertexList[i], 0, wayLeght);
+                count += recCountWays(vertexList[i], 0, wayLength);
 
             return count;
         }
@@ -290,8 +290,8 @@ namespace individual
                 {
                     if (dist[edge.GetTransmitterId()] == int.MaxValue) continue;
 
-                    if (dist[edge.GetReciverId()] > dist[edge.GetTransmitterId()] + edge.GetWeight())
-                        dist[edge.GetReciverId()] = dist[edge.GetTransmitterId()] + edge.GetWeight();
+                    if (dist[edge.GetReceiverId()] > dist[edge.GetTransmitterId()] + edge.GetWeight())
+                        dist[edge.GetReceiverId()] = dist[edge.GetTransmitterId()] + edge.GetWeight();
                 }
             }
 
@@ -365,7 +365,7 @@ namespace individual
             return this.ReceiverVertex;
         }
 
-        public int GetReciverId()
+        public int GetReceiverId()
         {
             return this.ReceiverVertex.getVertexId();
         }
