@@ -17,3 +17,4 @@ C:\Users\Super\Desktop\CofA_individual_1\individual\obj\Debug\individual.Propert
 C:\Users\Super\Desktop\CofA_individual_1\individual\obj\Debug\individual.csproj.GenerateResource.cache
 C:\Users\Super\Desktop\CofA_individual_1\individual\obj\Debug\individual.exe
 C:\Users\Super\Desktop\CofA_individual_1\individual\obj\Debug\individual.pdb
+C:\Users\Super\Desktop\CofA_individual_1\individual\obj\Debug\individual.csproj.CoreCompileInputs.cache

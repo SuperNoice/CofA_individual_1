@@ -41,13 +41,13 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.Processbutton2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.Processbutton3 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.Processbutton4 = new System.Windows.Forms.Button();
-            this.Processbutton5 = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.StartVertex = new System.Windows.Forms.TextBox();
+            this.Processbutton5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -186,6 +186,16 @@
             this.tabPage3.Text = "Построить топологическую сортировку вершин графа";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // Processbutton3
+            // 
+            this.Processbutton3.Location = new System.Drawing.Point(366, 210);
+            this.Processbutton3.Name = "Processbutton3";
+            this.Processbutton3.Size = new System.Drawing.Size(46, 45);
+            this.Processbutton3.TabIndex = 7;
+            this.Processbutton3.Text = "-->";
+            this.Processbutton3.UseVisualStyleBackColor = true;
+            this.Processbutton3.Click += new System.EventHandler(this.Processbutton3_Click);
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.Processbutton4);
@@ -195,6 +205,16 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Проверка на дерево";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // Processbutton4
+            // 
+            this.Processbutton4.Location = new System.Drawing.Point(366, 210);
+            this.Processbutton4.Name = "Processbutton4";
+            this.Processbutton4.Size = new System.Drawing.Size(46, 45);
+            this.Processbutton4.TabIndex = 8;
+            this.Processbutton4.Text = "-->";
+            this.Processbutton4.UseVisualStyleBackColor = true;
+            this.Processbutton4.Click += new System.EventHandler(this.Processbutton4_Click);
             // 
             // tabPage5
             // 
@@ -207,36 +227,6 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Алгоритм Беллмана – Форда нахождения кратчайшего пути";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // Processbutton3
-            // 
-            this.Processbutton3.Location = new System.Drawing.Point(366, 210);
-            this.Processbutton3.Name = "Processbutton3";
-            this.Processbutton3.Size = new System.Drawing.Size(46, 45);
-            this.Processbutton3.TabIndex = 7;
-            this.Processbutton3.Text = "-->";
-            this.Processbutton3.UseVisualStyleBackColor = true;
-            this.Processbutton3.Click += new System.EventHandler(this.Processbutton3_Click);
-            // 
-            // Processbutton4
-            // 
-            this.Processbutton4.Location = new System.Drawing.Point(366, 210);
-            this.Processbutton4.Name = "Processbutton4";
-            this.Processbutton4.Size = new System.Drawing.Size(46, 45);
-            this.Processbutton4.TabIndex = 8;
-            this.Processbutton4.Text = "-->";
-            this.Processbutton4.UseVisualStyleBackColor = true;
-            this.Processbutton4.Click += new System.EventHandler(this.Processbutton4_Click);
-            // 
-            // Processbutton5
-            // 
-            this.Processbutton5.Location = new System.Drawing.Point(366, 210);
-            this.Processbutton5.Name = "Processbutton5";
-            this.Processbutton5.Size = new System.Drawing.Size(46, 45);
-            this.Processbutton5.TabIndex = 9;
-            this.Processbutton5.Text = "-->";
-            this.Processbutton5.UseVisualStyleBackColor = true;
-            this.Processbutton5.Click += new System.EventHandler(this.Processbutton5_Click);
             // 
             // label2
             // 
@@ -254,6 +244,16 @@
             this.StartVertex.Size = new System.Drawing.Size(46, 20);
             this.StartVertex.TabIndex = 10;
             // 
+            // Processbutton5
+            // 
+            this.Processbutton5.Location = new System.Drawing.Point(366, 210);
+            this.Processbutton5.Name = "Processbutton5";
+            this.Processbutton5.Size = new System.Drawing.Size(46, 45);
+            this.Processbutton5.TabIndex = 9;
+            this.Processbutton5.Text = "-->";
+            this.Processbutton5.UseVisualStyleBackColor = true;
+            this.Processbutton5.Click += new System.EventHandler(this.Processbutton5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,7 +267,7 @@
             this.Controls.Add(this.Importbutton);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Количество путей длинны N";
+            this.Text = "Алгоритмы на графах";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
